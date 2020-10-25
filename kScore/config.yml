@@ -1,0 +1,22 @@
+Scoreboard_TittleUpdate: 3
+Scoreboard_TittleList:
+  - '&e&lHUB'
+  - '&6&lH&e&lUB'
+  - '&6&lHU&e&lB'
+  - '&e&lH&6&lUB'
+  - '&e&lHU&6&lB'
+ScoreBoard:
+  "1":
+    Name: "&2NickName&8: "
+    Prefix:
+    - '&e%player_name%'
+    - '&6%player_name%'
+    - '&c%player_name%'
+    Time: 6
+  "2":
+    Name: "&6"
+    Prefix:
+    - '&e1'
+    - '&62'
+    - '&C3'
+    Time: 20
