@@ -26,7 +26,6 @@ public class ScoreBoard {
 		this.p = player;
 		this.scoreboard = this.api.getMainAPI().newScoreBoard();
 		
-		this.api.getMainAPI().sendMessage("setScoreBoard 1/2");
 		this.api.getMainAPI().runTaskLaterAsynchronously(() -> {
 
 			AbstractConfigFile config = this.api.getConfig();
@@ -48,7 +47,6 @@ public class ScoreBoard {
 			}
 		}, 7L);
 		
-		this.api.getMainAPI().sendMessage("setScoreBoard 2/2");
 		this.setScoreboard();
 	}
 
