@@ -34,22 +34,18 @@ public abstract class ZoomonKScore implements KScoreAPI {
 	}
 
 	public void load() {
-		this.api.sendMessage("£adowanie pluginu");
 		this.fileManager.createFiles();
 	}
 	
 	public void enable() {
-		this.api.sendMessage("W³¹czenie pluginu enable 1/2");
 		this.api.runTaskTimerAsync(() -> {
 			for(ScoreBoard playerScoreboard : this.uuidsScores.values()) {
 				playerScoreboard.updateScoreBoard();
 			}
 		}, 1L);
-		this.api.sendMessage("W³¹czenie pluginu enable 2/2");
 	}
 	
 	public void disable() {
-		this.api.sendMessage("Wy³¹czenie pluginu");
 		this.uuidsScores.values().forEach( cs -> cs.remove());
 		this.uuidsScores.clear();
 	}
@@ -61,27 +57,25 @@ public abstract class ZoomonKScore implements KScoreAPI {
 	
 	@Override
 	public void setPlayerFLScoreBoard(Player player) {
-		this.api.sendMessage("setPlayerFLScoreBoard pluginu 1/2");
 		this.uuidsScores.put(player.getUniqueId(), new ScoreBoard(this, player));
-		this.api.sendMessage("setPlayerFLScoreBoard pluginu 2/2");
 	}
 	
 	@Override
-    public void removePlayerFLScoreBoard(UUID uuid) {
-    	ScoreBoard scoreBoard = this.uuidsScores.get(uuid);
-    	if(scoreBoard != null) {
-    		scoreBoard.remove();
-    		this.uuidsScores.remove(uuid);
+    	public void removePlayerFLScoreBoard(UUID uuid) {
+    		ScoreBoard scoreBoard = this.uuidsScores.get(uuid);
+    		if(scoreBoard != null) {
+    			scoreBoard.remove();
+    			this.uuidsScores.remove(uuid);
+    		}
     	}
-    }
     
-    @Override
-    public String translateColor(String string) {
-    	if(string == null) {
-    		return "";
+   	@Override
+    	public String translateColor(String string) {
+    		if(string == null) {
+    			return "";
+    		}
+        	return ChatColor.translateAlternateColorCodes((char)'&', (String)string);
     	}
-        return ChatColor.translateAlternateColorCodes((char)'&', (String)string);
-    }
 
 	@Override
 	public List<String> translateColorList(List<String> string) {
