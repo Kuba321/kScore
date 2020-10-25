@@ -27,19 +27,14 @@ public class Main extends JavaPlugin implements MainKScoreAPI {
 	
 	@Override
 	public void onLoad() {
-		this.sendMessage("£adowanie pluginu 1/3");
 		this.plugin = new PluginKScore(this);
-		this.sendMessage("£adowanie pluginu 2/3");
 		this.config = new BukkitConfig(null, this.plugin);
-		this.sendMessage("£adowanie pluginu 3/3");
 		this.plugin.load();
 	}
 	
 	@Override
 	public void onEnable() {
-		this.sendMessage("Wlaczenie pluginu 1/2");
 		this.plugin.enable();
-		this.sendMessage("Wlaczenie pluginu 2/2");
 		new NametagHandler(((KScoreAPI) this.plugin), this.managertag);
 	}
 	
@@ -71,30 +66,30 @@ public class Main extends JavaPlugin implements MainKScoreAPI {
 		return Bukkit.getPluginManager();
 	}
 	
-	@Override
-	public void registerListener(Listener clazz) {
+   	@Override
+    	public void registerListener(Listener clazz) {
 		this.getPluginManager().registerEvents(clazz, this);
-	}
+   	}
 	
-    @Override
-    public boolean isOnlineUUID(UUID uuid) {
-        return Bukkit.getPlayer((UUID)uuid) != null;
-    }
+   	@Override
+    	public boolean isOnlineUUID(UUID uuid) {
+      	  	return Bukkit.getPlayer((UUID)uuid) != null;
+   	}
 
-    @Override
-    public boolean isOnlineString(String name) {
-        return Bukkit.getPlayer((String)name) != null;
-    }
+   	@Override
+    	public boolean isOnlineString(String name) {
+       		return Bukkit.getPlayer((String)name) != null;
+    	}
 	
-    @Override
-    public UUID getUUID(String name) {
-        return Bukkit.getPlayer((String)name) != null ? Bukkit.getPlayer((String)name).getUniqueId() : null;
-    }
+    	@Override
+    	public UUID getUUID(String name) {
+        	return Bukkit.getPlayer((String)name) != null ? Bukkit.getPlayer((String)name).getUniqueId() : null;
+    	}
 
-    @Override
-    public String getName(UUID uuid) {
-        return Bukkit.getPlayer((UUID)uuid) != null ? Bukkit.getPlayer((UUID)uuid).getName() : null;
-    }
+    	@Override
+    	public String getName(UUID uuid) {
+       		return Bukkit.getPlayer((UUID)uuid) != null ? Bukkit.getPlayer((UUID)uuid).getName() : null;
+   	}
     
 	@Override
 	public void runTask(Runnable run) {
