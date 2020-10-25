@@ -13,7 +13,7 @@ import me.matyyy.kscore.config.BukkitConfig.Enun;
 
 public abstract class AbstractConfigFile {
 	
-	protected final KScoreAPI scoreapi;
+    protected final KScoreAPI scoreapi;
     protected final File file;
 
     public abstract Object get(String var1);
