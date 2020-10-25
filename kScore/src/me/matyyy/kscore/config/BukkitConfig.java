@@ -14,29 +14,29 @@ import me.matyyy.kscore.PluginKScore;
 
 public class BukkitConfig extends AbstractConfigFile {
 
-	private final FileConfiguration config;
-	private List<Enun> enums = new ArrayList<>();
+    	private final FileConfiguration config;
+    	private List<Enun> enums = new ArrayList<>();
 	
-	public BukkitConfig(File file, PluginKScore main) {
-		super(file, main);
+    	public BukkitConfig(File file, PluginKScore main) {
+        	super(file, main);
 		this.config = ((Main) main.getMainAPI()).getConfig();
-        this.reload();
-    }
+       		this.reload();
+    	}
 
-    @Override
-    public Object get(String path) {
-        return this.config.get(path);
-    }
+    	@Override
+    	public Object get(String path) {
+       		return this.config.get(path);
+   	}
 
-    @Override
-    public Set<String> getConfigurationSection(String path) {
-        return this.config.getConfigurationSection(path) != null ? this.config.getConfigurationSection(path).getKeys(false) : Collections.emptySet();
-    }
+    	@Override
+    	public Set<String> getConfigurationSection(String path) {
+       		return this.config.getConfigurationSection(path) != null ? this.config.getConfigurationSection(path).getKeys(false) : Collections.emptySet();
+    	}
 
-    @Override
-    public final void reload() {
-        ((Main) this.scoreapi.getMainAPI()).reloadConfig();
-    }
+    	@Override
+    	public final void reload() {
+      	 	((Main) this.scoreapi.getMainAPI()).reloadConfig();
+   	 }
 
 	@Override
 	public List<String> getScoreBoardTittleList() {
@@ -55,7 +55,7 @@ public class BukkitConfig extends AbstractConfigFile {
 
 				Enun en = 
 					new Enun(this.scoreapi.translateColor(this.getString("ScoreBoard." + number + ".Name", "")), 
-						this.scoreapi.translateColorList(this.getStringList("ScoreBoard." + number + ".Prefix", Arrays.asList("B³¹d #23", "B³¹d #23"))),
+						this.scoreapi.translateColorList(this.getStringList("ScoreBoard." + number + ".Prefix", Arrays.asList("BÂ³Â¹d #23", "BÂ³Â¹d #23"))),
 						this.getInt("ScoreBoard." + number + ".Time", 5),
 						Integer.parseInt(number));
 				this.enums.add(en);
